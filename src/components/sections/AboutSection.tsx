@@ -11,6 +11,10 @@ import { Reveal } from "@/components/ui/Reveal";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const LINKED_TEAM = TEAM.filter(
+  (member): member is Extract<(typeof TEAM)[number], { href: string }> => "href" in member
+);
+
 function Counter({ stat }: { stat: Stat }) {
   const ref = useRef<HTMLSpanElement>(null);
 
@@ -82,7 +86,7 @@ export default function AboutSection() {
 
         {/* team */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {TEAM.map((m, i) => (
+          {LINKED_TEAM.map((m, i) => (
             <Reveal key={m.name} delay={i * 0.1}>
               <a
                 href={m.href}
