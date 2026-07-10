@@ -30,7 +30,7 @@ export const HERO = {
   line1: ["We", "build"],
   line2: ["products", "that"],
   line3: ["actually", "ship."],
-  sub: "A two-person studio shipping fast landing pages, full-stack web apps, and AI tools, design to deployment.",
+  sub: "A Development studio shipping fast landing pages, full-stack web apps, and AI tools, design to deployment.",
 } as const;
 
 export type Stat = { num: number; suffix?: string; glyph?: string; dec?: boolean; label: string };
@@ -51,7 +51,7 @@ export const MARQUEE = [
 
 export const STUDIO = {
   lead:
-    "We are a two-person studio in Delhi building fast, reliable web products for startups and small businesses.",
+    "We are a development studio in Delhi building fast, reliable web products for startups and small businesses.",
   body:
     "You get a working product, not a design that never ships. We handle design, development, and deployment end to end, with direct communication and zero agency fluff.",
 };
@@ -71,6 +71,22 @@ export const TEAM = [
     href: "https://github.com/AdarshKumarSr",
     image: "/assets/founderAdarshShri.jpg",
   },
+  {
+    name: "Deepak Rawat",
+    role: "Marketing + Developer",
+    bio: "Full-stack developer focused on shipping clean, scalable products for founders and small teams.",
+    href: "https://github.com/dpkrwt21",
+    image: "/assets/deepak.jpeg",
+  },
+  {
+    name: "Comming Soon",
+    role: "Comming Soon",
+    bio: "Comming Soon",
+    // href: "https://github.com/dpkrwt21",
+    image: "/assets/placeholder.png",
+  },
+  
+
 ] as const;
 
 export type Service = { no: string; title: string; description: string };

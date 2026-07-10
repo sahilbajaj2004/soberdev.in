@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: "%s | SoberDev",
   },
   description:
-    "SoberDev is a two-person software development studio in Delhi, India. We build fast landing pages, full-stack web apps, and cross-platform products for startups and small businesses.",
+    "SoberDev is a development studio in Delhi, India. We build fast landing pages, full-stack web apps, and cross-platform products for startups and small businesses.",
   keywords:
     "SoberDev, sober dev, sober, SoberDev agency, web development agency, software development agency, digital product studio, web developer in Delhi, website development in Delhi, full stack developer Delhi, web development India, landing page development, full stack web apps, SaaS development, MVP development, startup product development, React developer, Next.js developer, TypeScript, Tailwind CSS, MERN stack, Node.js development, API development, database design, backend developer Delhi, frontend developer Delhi, web application development, custom website development, ecommerce development, Shopify development, CMS development, headless CMS, UI/UX design, product design studio, web design Delhi, responsive web design, performance optimization, SEO services, DevOps services, cloud deployment, Vercel deployment, AWS deployment, cross-platform apps, Android app development, iOS app development, mobile app development, progressive web app, PWA development, SoberDev Delhi, Sahil Bajaj, Adarsh Shrivastava",
   authors: [{ name: "SoberDev" }],
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SoberDev - Software Development Studio in Delhi, India",
     description:
-      "Two-person studio in Delhi building landing pages, full-stack web apps, and cross-platform products.",
+      "Development studio in Delhi building landing pages, full-stack web apps, and cross-platform products.",
     type: "website",
     url: SITE_URL,
     siteName: "SoberDev",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SoberDev - Software Development Studio in Delhi, India",
     description:
-      "Two-person studio in Delhi building landing pages, full-stack web apps, and cross-platform products.",
+      "Development studio in Delhi building landing pages, full-stack web apps, and cross-platform products.",
     images: [new URL("/soberdev.jpg", SITE_URL).toString()],
   },
   icons: {

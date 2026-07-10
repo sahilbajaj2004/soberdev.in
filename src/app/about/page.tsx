@@ -9,7 +9,7 @@ import { Reveal } from "@/components/ui/Reveal";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "SoberDev is a two-person software development studio in Delhi, India — Sahil Bajaj and Adarsh Shrivastava — building fast, reliable products end to end.",
+    "SoberDev is a development studio in Delhi, India, building fast, reliable products end to end.",
   alternates: { canonical: "/about" },
 };
 
@@ -56,7 +56,7 @@ export default function AboutPage() {
         {/* team */}
         <Reveal>
           <h2 className="mt-24 mb-10 font-display text-3xl font-bold tracking-tighter text-white md:text-5xl">
-            The two of us
+            Development studio
           </h2>
         </Reveal>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
