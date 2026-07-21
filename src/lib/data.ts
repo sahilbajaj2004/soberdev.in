@@ -78,14 +78,6 @@ export const TEAM = [
     href: "https://github.com/dpkrwt21",
     image: "/assets/deepak.jpeg",
   },
-  {
-    name: "Comming Soon",
-    role: "Comming Soon",
-    bio: "Comming Soon",
-    // href: "https://github.com/dpkrwt21",
-    image: "/assets/placeholder.png",
-  },
-  
 
 ] as const;
 
@@ -135,6 +127,18 @@ const PORTFOLIO = "https://soberdev.in";
 export const PROJECTS: Project[] = [
   {
     index: "01",
+    title: "Lets Meet",
+    kind: "Video Conferencing",
+    blurb:
+      "User-friendly video conferencing platform with real-time chat, screen sharing, and meeting scheduling.",
+    tags: ["Next.js", "AI", "DevTool"],
+    image: "/assets/letsmeet.png",
+    year: "2025",
+    link: "https://bajajletsmeet.vercel.app/",
+    featured: true,
+  },
+  {
+    index: "02",
     title: "RepoSignal",
     kind: "AI DevTool",
     blurb:
@@ -146,7 +150,7 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    index: "02",
+    index: "03",
     title: "CodeToResume",
     kind: "Product",
     blurb:
@@ -158,7 +162,7 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    index: "03",
+    index: "04",
     title: "ResumeTailor",
     kind: "AI Product",
     blurb:
@@ -170,7 +174,7 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    index: "04",
+    index: "05",
     title: "TextToSQL",
     kind: "AI Product",
     blurb:
@@ -182,7 +186,7 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    index: "05",
+    index: "06",
     title: "AlgoAnalyzer",
     kind: "Full-stack",
     blurb:
@@ -194,7 +198,18 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    index: "06",
+    index: "07",
+    title: "Dhruv Sharma",
+    kind: "Portfolio",
+    blurb:
+      "A developer portfolio to showcase full-stack work, resume, and contact flow. Optimized for fast load and clear hiring visibility.",
+    tags: ["React", "Tailwind", "Portfolio"],
+    image: "/dhruv.png",
+    year: "2024",
+    link: "https://dhruvsharmadev.vercel.app/",
+  },
+  {
+    index: "08",
     title: "Pi 3.14",
     kind: "Brand site",
     blurb:
@@ -206,7 +221,7 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    index: "07",
+    index: "09",
     title: "Amrit Place",
     kind: "Front-end",
     blurb:
@@ -217,7 +232,7 @@ export const PROJECTS: Project[] = [
     link: PORTFOLIO,
   },
   {
-    index: "08",
+    index: "10",
     title: "Favicon.OS",
     kind: "Tool",
     blurb:
@@ -228,7 +243,7 @@ export const PROJECTS: Project[] = [
     link: "https://favicongenerator-neon.vercel.app/",
   },
   {
-    index: "09",
+    index: "11",
     title: "Prerna Institution",
     kind: "Web app",
     blurb:
@@ -239,7 +254,7 @@ export const PROJECTS: Project[] = [
     link: "https://prernainstitution.vercel.app/",
   },
   {
-    index: "10",
+    index: "12",
     title: "DevCrafter",
     kind: "Brand site",
     blurb:
@@ -250,7 +265,7 @@ export const PROJECTS: Project[] = [
     link: PORTFOLIO,
   },
   {
-    index: "11",
+    index: "13",
     title: "Burrow AI",
     kind: "E-commerce",
     blurb:
@@ -259,17 +274,6 @@ export const PROJECTS: Project[] = [
     image: "/burrow.png",
     year: "2024",
     link: "https://burrow-3.onrender.com/",
-  },
-  {
-    index: "12",
-    title: "Dhruv Sharma",
-    kind: "Portfolio",
-    blurb:
-      "A developer portfolio to showcase full-stack work, resume, and contact flow. Optimized for fast load and clear hiring visibility.",
-    tags: ["React", "Tailwind", "Portfolio"],
-    image: "/dhruv.png",
-    year: "2024",
-    link: "https://dhruvsharmadev.vercel.app/",
   },
 ];
 
