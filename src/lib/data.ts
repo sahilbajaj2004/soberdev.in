@@ -73,7 +73,7 @@ export const TEAM = [
   },
   {
     name: "Deepak Rawat",
-    role: "Marketing + Developer",
+    role: "Co-founder, Developer",
     bio: "Full-stack developer focused on shipping clean, scalable products for founders and small teams.",
     href: "https://github.com/dpkrwt21",
     image: "/assets/deepak.jpeg",
