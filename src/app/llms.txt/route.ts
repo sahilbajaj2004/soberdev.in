@@ -51,7 +51,7 @@ export async function GET() {
         (t) => `- ${t.label}: from ₹${t.from.toLocaleString("en-IN")}`,
       ),
       "- Custom scope is quoted per project.",
-      "- Typical timelines: landing pages 1–2 weeks; full-stack web apps 4–8 weeks.",
+      "- Typical timelines: landing pages 1-2 weeks; full-stack web apps 4-8 weeks.",
     ]),
     section("Technology", [
       "- Front end: React, Next.js, TypeScript, Tailwind CSS",
