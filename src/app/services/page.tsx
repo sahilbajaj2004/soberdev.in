@@ -47,7 +47,7 @@ const DETAIL: Record<
   },
   "02": {
     detail:
-      "Interfaces with character. We pair clean visual hierarchy with purposeful motion so the product feels considered the moment it loads — without sacrificing speed or accessibility.",
+      "Interfaces with character. We pair clean visual hierarchy with purposeful motion so the product feels considered the moment it loads - without sacrificing speed or accessibility.",
     includes: ["UI & interaction design", "Motion with GSAP & Framer Motion", "Design systems", "Responsive layouts", "Accessibility"],
   },
   "03": {

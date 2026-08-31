@@ -13,9 +13,9 @@ import {
 } from "@/lib/schema";
 import { buildMetadata } from "@/lib/site";
 
-const TITLE = "Contact — Start a Project";
+const TITLE = "Contact - Start a Project";
 const DESCRIPTION =
-  "Contact SoberDev in Delhi, India — email contact@soberdev.in or call +91 8595105597. Tell us what you're building; we reply within one working day.";
+  "Contact SoberDev in Delhi, India - email contact@soberdev.in or call +91 8595105597. Tell us what you're building; we reply within one working day.";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,

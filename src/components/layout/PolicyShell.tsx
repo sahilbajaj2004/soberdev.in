@@ -11,7 +11,7 @@ import { ROUTES } from "@/lib/site";
  * Syne display headings, Bricolage body, JetBrains mono labels.
  *
  * These pages previously rendered a minimal local footer containing only the
- * three legal links, which left them orphaned from the rest of the site — no
+ * three legal links, which left them orphaned from the rest of the site - no
  * path back to /work, /services, /about or /contact. They now use the shared
  * header and footer so link equity flows through them like any other page.
  */

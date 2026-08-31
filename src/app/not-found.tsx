@@ -8,7 +8,7 @@ import NotFound from "@/components/layout/NotFound";
  * Console reports as a soft 404.
  *
  * The robots directives are declared explicitly and must stay. The root layout
- * sets `index: true, follow: true`, and metadata is inherited — so omitting this
+ * sets `index: true, follow: true`, and metadata is inherited - so omitting this
  * block leaves the 404 emitting Next's automatic `noindex` alongside an inherited
  * `index, follow`, which are directly contradictory. `googleBot` is overridden
  * too, otherwise the layout's Googlebot-specific `index` directive survives.

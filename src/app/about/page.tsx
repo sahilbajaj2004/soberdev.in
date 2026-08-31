@@ -15,7 +15,7 @@ import {
 } from "@/lib/schema";
 import { buildMetadata } from "@/lib/site";
 
-const TITLE = "About — Development Studio in Delhi";
+const TITLE = "About - Development Studio in Delhi";
 const DESCRIPTION =
   "A small software development studio in Delhi, India. We build fast, reliable web and mobile products end to end, with direct founder access.";
 

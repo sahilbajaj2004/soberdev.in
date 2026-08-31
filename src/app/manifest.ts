@@ -8,7 +8,7 @@ import { DEFAULT_DESCRIPTION, SITE_NAME } from "@/lib/site";
  */
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${SITE_NAME} — Software Development Studio in Delhi, India`,
+    name: `${SITE_NAME} | Software Development Studio in Delhi, India`,
     short_name: SITE_NAME,
     description: DEFAULT_DESCRIPTION,
     start_url: "/",

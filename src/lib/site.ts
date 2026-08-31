@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 
 /**
  * Single source of truth for site identity, canonical URL, NAP (name / address /
- * phone) and route inventory. Everything SEO-facing — metadata, robots, sitemap,
- * JSON-LD, llms.txt, OG images — reads from here so the signals can never drift
+ * phone) and route inventory. Everything SEO-facing (metadata, robots, sitemap,
+ * JSON-LD, llms.txt, OG images) reads from here so the signals can never drift
  * apart. Inconsistent NAP data across a site actively suppresses local ranking
  * and confuses answer engines, so it is deliberately defined exactly once.
  */
@@ -53,19 +53,19 @@ export const CURRENCY = "INR";
 export const PRICE_RANGE = "₹₹";
 
 export const DEFAULT_TITLE =
-  "SoberDev — Software Development Studio in Delhi, India";
+  "SoberDev | Software Development Studio in Delhi, India";
 
 /**
  * Kept under ~160 characters so Google renders it whole rather than truncating
  * mid-sentence. Leads with the category and location, closes with a concrete
- * price — the two things a searcher is scanning the snippet for.
+ * price: the two things a searcher is scanning the snippet for.
  */
 export const DEFAULT_DESCRIPTION =
   "Software development studio in Delhi, India. We design, build, and deploy landing pages, full-stack web apps, and cross-platform products. From ₹12,000.";
 
 /**
  * Focused keyword set. Search engines ignore the keywords meta entirely, but a
- * short honest list is still parsed by some AI crawlers and social tools — where
+ * short honest list is still parsed by some AI crawlers and social tools, where
  * a 60-term keyword-stuffed string reads as spam. Kept to real ranking targets.
  */
 export const KEYWORDS = [
@@ -122,7 +122,7 @@ export const ROUTES: RouteMeta[] = [
     path: "/services",
     name: "Services",
     summary:
-      "The four service lines — web platforms, experience design, cross-platform apps, deploy & DevOps — and the stack behind each.",
+      "The four service lines (web platforms, experience design, cross-platform apps, deploy & DevOps) and the stack behind each.",
     changeFrequency: "monthly",
     priority: 0.9,
   },
@@ -169,7 +169,7 @@ export const ROUTES: RouteMeta[] = [
 /**
  * Build a page Metadata object with canonical + Open Graph + Twitter kept in
  * sync. Without explicit per-page openGraph values, every page inherits the
- * root layout's OG title/description/url — so all shares look identical and the
+ * root layout's OG title/description/url, so all shares look identical and the
  * og:url contradicts the canonical.
  */
 export function buildMetadata({

@@ -25,7 +25,7 @@ function FeaturedCard({ p, priority = false }: { p: Project; priority?: boolean 
       <div className="relative flex-1 overflow-hidden">
         <Image
           src={p.image}
-          alt={`${p.title} — ${p.kind} built by SoberDev using ${p.tags.join(", ")}`}
+          alt={`${p.title} - ${p.kind} built by SoberDev using ${p.tags.join(", ")}`}
           fill
           sizes="(max-width: 768px) 82vw, 46vw"
           priority={priority}
@@ -138,7 +138,7 @@ export default function ProjectsSection() {
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
                     src={p.image}
-                    alt={`${p.title} — ${p.kind} built by SoberDev using ${p.tags.join(", ")}`}
+                    alt={`${p.title} - ${p.kind} built by SoberDev using ${p.tags.join(", ")}`}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover object-top grayscale-[0.4] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.05]"

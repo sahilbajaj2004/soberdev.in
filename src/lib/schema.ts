@@ -16,7 +16,7 @@ import {
  *
  * Everything is emitted as a single `@graph` with stable `@id` values so nodes
  * cross-reference each other instead of repeating themselves. That is what lets
- * Google — and LLM-based answer engines — resolve "SoberDev" to one entity
+ * Google -nd LLM-based answer engines re-olve "SoberDev" to one entity
  * rather than treating each page's markup as an unrelated island.
  */
 
@@ -258,7 +258,7 @@ export function offerCatalogNode(
   };
 }
 
-/** Portfolio as an ordered ItemList of CreativeWork — crawlable, citable. */
+/** Portfolio as an ordered ItemList of CreativeWork,-crawlable and citable. */
 export function projectsNode(
   projects: ReadonlyArray<{
     title: string;
@@ -283,7 +283,7 @@ export function projectsNode(
       item: {
         "@type": "CreativeWork",
         name: project.title,
-        headline: `${project.title} — ${project.kind}`,
+        headline: `${project.title} - ${project.kind}`,
         description: project.blurb,
         image: abs(project.image),
         url: project.link,
@@ -326,7 +326,7 @@ export function teamNode(
  * organisation. Google treats star ratings that a business collects and marks up
  * about itself as self-serving: they are ineligible for rich results and can
  * trigger a manual action. The reviews still carry real, attributable social
- * proof for answer engines — we just don't fabricate numbers to chase stars.
+ * proof for answer engines - we just don't fabricate numbers to chase stars.
  */
 export function reviewsNode(
   testimonials: ReadonlyArray<{ name: string; role: string; content: string }>,

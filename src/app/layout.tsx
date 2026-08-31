@@ -59,7 +59,7 @@ export const metadata: Metadata = {
       index: true,
       follow: true,
       // Allow full-size image previews and untruncated text snippets. Without
-      // these, Google may clip the snippet it shows — and AI Overviews draw on
+      // these, Google may clip the snippet it shows - and AI Overviews draw on
       // the same snippet budget.
       "max-image-preview": "large",
       "max-snippet": -1,
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     },
   },
   // No `alternates` here on purpose. A canonical defined in the root layout is
-  // inherited by any page that does not set its own — which previously meant the
+  // inherited by any page that does not set its own - which previously meant the
   // 404 page advertised the homepage as its canonical, a textbook soft-404
   // signal. Every real page now declares its own canonical via buildMetadata().
   // hreflang is likewise omitted: the site is single-locale, so language
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
   },
   icons: {
     // /favicon.ico is emitted automatically from src/app/favicon.ico, so it is
-    // intentionally not repeated here — declaring it twice produced duplicate
+    // intentionally not repeated here - declaring it twice produced duplicate
     // <link rel="icon"> tags.
     icon: [
       { url: "/icon-192.png", sizes: "192x192", type: "image/png" },

@@ -57,15 +57,15 @@ export default function RefundPolicyPage() {
         <p>
           If we are unable to deliver the project, we will{" "}
           <strong>refund the portion you have paid for work that has not yet been
-          completed</strong>. You keep — and we hand over — any completed work that
+          completed</strong>. You keep - and we hand over - any completed work that
           you have already paid for.
         </p>
       </Section>
 
       <Section title="Non-refundable third-party costs">
         <p>
-          Any third-party costs we have already paid on your behalf — such as
-          domains, paid plugins or licenses, stock assets, or hosting — are not
+          Any third-party costs we have already paid on your behalf - such as
+          domains, paid plugins or licenses, stock assets, or hosting - are not
           refundable, regardless of the cancellation stage.
         </p>
       </Section>
