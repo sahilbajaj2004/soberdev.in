@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PolicyShell, Section } from "@/components/layout/PolicyShell";
+import { buildMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Refund & Cancellation Policy",
   description:
     "How cancellations and refunds work at SoberDev across the 40% / 30% / 30% project milestones, including what is refundable at each stage.",
-  alternates: { canonical: "/refund-policy" },
-};
+  path: "/refund-policy",
+});
 
 const UPDATED = "June 20, 2026";
 
 export default function RefundPolicyPage() {
   return (
-    <PolicyShell title="Refund & Cancellation Policy" updated={UPDATED}>
+    <PolicyShell path="/refund-policy" title="Refund & Cancellation Policy" updated={UPDATED}>
       <Section title="Overview">
         <p>
           This policy explains what happens if a project is cancelled, and how
@@ -72,7 +73,7 @@ export default function RefundPolicyPage() {
       <Section title="How to request a cancellation or refund">
         <p>
           To cancel or request a refund, email{" "}
-          <a href="mailto:devssober@gmail.com">devssober@gmail.com</a> with your
+          <a href="mailto:contact@soberdev.in">contact@soberdev.in</a> with your
           project name. Where a refund is due, we issue it to the original payment
           method where possible, typically within 7–10 business days of confirming
           the cancellation.
@@ -90,7 +91,7 @@ export default function RefundPolicyPage() {
       <Section title="Contact">
         <p>
           Questions about cancellations or refunds? Email{" "}
-          <a href="mailto:devssober@gmail.com">devssober@gmail.com</a>. See also our{" "}
+          <a href="mailto:contact@soberdev.in">contact@soberdev.in</a>. See also our{" "}
           <Link href="/privacy-policy">Privacy Policy</Link> and{" "}
           <Link href="/terms-of-service">Terms of Service</Link>.
         </p>

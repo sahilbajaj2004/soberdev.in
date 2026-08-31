@@ -2,16 +2,45 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, CheckCircle2, MapPin, Sparkles } from "lucide-react";
-import { SERVICES, SITE, STATS, STUDIO, TEAM } from "@/lib/data";
+import { SERVICES, SITE, STATS, STUDIO, TEAM, TESTIMONIALS } from "@/lib/data";
 import PageShell from "@/components/layout/PageShell";
 import { Reveal } from "@/components/ui/Reveal";
+import JsonLd from "@/components/seo/JsonLd";
+import {
+  breadcrumbNode,
+  graph,
+  reviewsNode,
+  teamNode,
+  webPageNode,
+} from "@/lib/schema";
+import { buildMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "SoberDev is a development studio in Delhi, India, building fast, reliable products end to end.",
-  alternates: { canonical: "/about" },
-};
+const TITLE = "About — Development Studio in Delhi";
+const DESCRIPTION =
+  "A small software development studio in Delhi, India. We build fast, reliable web and mobile products end to end, with direct founder access.";
+
+export const metadata: Metadata = buildMetadata({
+  title: TITLE,
+  description: DESCRIPTION,
+  path: "/about",
+  keywords: [
+    "software development studio Delhi",
+    "web development team India",
+    "about SoberDev",
+  ],
+});
+
+const aboutGraph = graph(
+  webPageNode({
+    path: "/about",
+    title: TITLE,
+    description: DESCRIPTION,
+    type: "AboutPage",
+  }),
+  breadcrumbNode("/about"),
+  ...teamNode(TEAM),
+  ...reviewsNode(TESTIMONIALS),
+);
 
 const PRINCIPLES = [
   {
@@ -53,6 +82,7 @@ export default function AboutPage() {
       }
       intro={STUDIO.lead}
     >
+      <JsonLd id="schema-about" data={aboutGraph} />
       <section className="mx-auto max-w-[1400px] px-6 pb-24 md:pb-36">
         <div className="grid gap-10 border-t border-white/10 pt-10 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-7">
@@ -176,7 +206,7 @@ export default function AboutPage() {
                     <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-md ring-1 ring-white/10 grayscale transition-all duration-500 group-hover:ring-indigo-500/40 group-hover:grayscale-0">
                       <Image
                         src={member.image}
-                        alt={member.name}
+                        alt={`${member.name}, ${member.role} at SoberDev`}
                         fill
                         sizes="80px"
                         className="object-cover object-top transition-transform duration-700 group-hover:scale-105"

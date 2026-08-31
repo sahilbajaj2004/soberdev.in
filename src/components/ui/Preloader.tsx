@@ -70,9 +70,14 @@ export default function Preloader() {
       </div>
       <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
         <div className="overflow-hidden">
-          <h2 className="pl-line font-display text-[clamp(2.5rem,10vw,7rem)] font-extrabold leading-none tracking-tighter text-white">
+          {/*
+            Deliberately a <div>, not a heading. The preloader is server-rendered
+            into the initial HTML of every route, so a heading here would appear
+            above each page's real <h1> and break the document outline sitewide.
+          */}
+          <div className="pl-line font-display text-[clamp(2.5rem,10vw,7rem)] font-extrabold leading-none tracking-tighter text-white">
             SOBER<span className="text-indigo-500">DEV</span>
-          </h2>
+          </div>
         </div>
         <div className="mt-5 overflow-hidden">
           <span className="pl-count block font-mono text-xs uppercase tracking-[0.5em] text-indigo-400">

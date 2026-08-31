@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PolicyShell, Section } from "@/components/layout/PolicyShell";
+import { buildMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Terms of Service",
   description:
     "The terms that govern SoberDev's web development services — scope, payment milestones, intellectual property, timelines, liability, and termination.",
-  alternates: { canonical: "/terms-of-service" },
-};
+  path: "/terms-of-service",
+});
 
 const UPDATED = "June 20, 2026";
 
 export default function TermsOfServicePage() {
   return (
-    <PolicyShell title="Terms of Service" updated={UPDATED}>
+    <PolicyShell path="/terms-of-service" title="Terms of Service" updated={UPDATED}>
       <Section title="Agreement">
         <p>
           These Terms of Service govern the web development work SoberDev (&quot;we&quot;,
@@ -163,7 +164,7 @@ export default function TermsOfServicePage() {
       <Section title="Contact">
         <p>
           Questions about these terms? Email{" "}
-          <a href="mailto:devssober@gmail.com">devssober@gmail.com</a>. See also our{" "}
+          <a href="mailto:contact@soberdev.in">contact@soberdev.in</a>. See also our{" "}
           <Link href="/privacy-policy">Privacy Policy</Link> and{" "}
           <Link href="/refund-policy">Refund Policy</Link>.
         </p>

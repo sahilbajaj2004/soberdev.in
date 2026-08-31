@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PolicyShell, Section } from "@/components/layout/PolicyShell";
+import { buildMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Privacy Policy",
   description:
     "How SoberDev collects, uses, retains, and protects the information you share through our contact form and website.",
-  alternates: { canonical: "/privacy-policy" },
-};
+  path: "/privacy-policy",
+});
 
 const UPDATED = "June 20, 2026";
 
 export default function PrivacyPolicyPage() {
   return (
-    <PolicyShell title="Privacy Policy" updated={UPDATED}>
+    <PolicyShell path="/privacy-policy" title="Privacy Policy" updated={UPDATED}>
       <Section title="Who we are">
         <p>
           SoberDev is a development studio based in Delhi, India.
@@ -23,7 +24,7 @@ export default function PrivacyPolicyPage() {
         </p>
         <p>
           For any privacy-related question or request, email us at{" "}
-          <a href="mailto:devssober@gmail.com">devssober@gmail.com</a>.
+          <a href="mailto:contact@soberdev.in">contact@soberdev.in</a>.
         </p>
       </Section>
 
@@ -109,7 +110,7 @@ export default function PrivacyPolicyPage() {
         <ul>
           <li>
             <strong>Web3Forms</strong> — delivers your contact-form submission to
-            our email inbox (devssober@gmail.com). We use it for email delivery
+            our email inbox (contact@soberdev.in). We use it for email delivery
             only; it does not store a separate copy of your submission for us.
             See{" "}
             <a href="https://web3forms.com" target="_blank" rel="noopener noreferrer">
@@ -153,7 +154,7 @@ export default function PrivacyPolicyPage() {
           You can ask us to access, correct, or delete the personal information
           you have shared with us. Because we are a development studio, we handle
           these requests manually: email{" "}
-          <a href="mailto:devssober@gmail.com">devssober@gmail.com</a> from the
+          <a href="mailto:contact@soberdev.in">contact@soberdev.in</a> from the
           address you contacted us with, tell us what you would like, and we will
           action it within a reasonable time.
         </p>
@@ -203,7 +204,7 @@ export default function PrivacyPolicyPage() {
       <Section title="Contact">
         <p>
           Questions or requests about your data? Email{" "}
-          <a href="mailto:devssober@gmail.com">devssober@gmail.com</a>. You can
+          <a href="mailto:contact@soberdev.in">contact@soberdev.in</a>. You can
           also read our{" "}
           <Link href="/terms-of-service">Terms of Service</Link> and{" "}
           <Link href="/refund-policy">Refund Policy</Link>.

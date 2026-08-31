@@ -94,14 +94,19 @@ export default function HeroSection() {
       />
 
       <motion.div style={{ y, opacity: fade }} className="relative z-10 w-full max-w-[1400px] mx-auto px-6 pt-28">
-        <div className="hero-fade mb-7 flex items-center gap-3">
-          <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
-          <span className="text-[11px] font-mono uppercase tracking-[0.28em] text-white/55">
-            {HERO.kicker}
-          </span>
-        </div>
-
         <h1 className="font-display font-bold text-white leading-[0.92] tracking-tighter text-[clamp(2.8rem,9vw,9rem)]">
+          {/*
+            The eyebrow lives inside the h1 so the heading text reads
+            "Software development studio in Delhi, India — We build products that
+            actually ship.", carrying both search intent and the brand line.
+            Styling keeps it visually identical to the previous sibling element.
+          */}
+          <span className="hero-fade mb-7 flex items-center gap-3">
+            <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
+            <span className="text-[11px] font-mono font-normal uppercase tracking-[0.28em] text-white/55">
+              {HERO.kicker}
+            </span>
+          </span>
           <span className="block">
             {HERO.line1.map((w, i) => (
               <span key={i} className="mr-[0.25em]"><Word>{w}</Word></span>
