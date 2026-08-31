@@ -24,7 +24,13 @@ export default function TestimonialsSection() {
               <p className="text-lg text-white/80 font-light leading-relaxed">“{t.content}”</p>
               <div className="mt-10 flex items-center gap-4 border-t border-white/10 pt-6">
                 <div className="relative h-11 w-11 overflow-hidden rounded-full grayscale transition-all duration-500 group-hover:grayscale-0">
-                  <Image src={t.image} alt={t.name} fill className="object-cover" sizes="44px" />
+                  <Image
+                    src={t.image}
+                    alt={`${t.name}, ${t.role}, SoberDev client`}
+                    fill
+                    className="object-cover"
+                    sizes="44px"
+                  />
                 </div>
                 <div>
                   <p className="text-white font-bold text-sm">{t.name}</p>

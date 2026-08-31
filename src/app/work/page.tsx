@@ -4,13 +4,36 @@ import { ArrowUpRight } from "lucide-react";
 import { PROJECTS } from "@/lib/data";
 import PageShell from "@/components/layout/PageShell";
 import { Reveal } from "@/components/ui/Reveal";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbNode, graph, projectsNode, webPageNode } from "@/lib/schema";
+import { buildMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Work",
-  description:
-    "A full index of products SoberDev has shipped — landing pages, full-stack web apps, AI dev tools, and brand sites, with live links to each.",
-  alternates: { canonical: "/work" },
-};
+const TITLE = "Work — Web & App Projects We've Shipped";
+const DESCRIPTION =
+  "Every product SoberDev has shipped: landing pages, full-stack web apps, AI developer tools, and brand sites — each with a live link, stack, and year.";
+
+export const metadata: Metadata = buildMetadata({
+  title: TITLE,
+  description: DESCRIPTION,
+  path: "/work",
+  keywords: [
+    "web development portfolio",
+    "Next.js projects",
+    "full stack web app examples",
+    "SoberDev work",
+  ],
+});
+
+const workGraph = graph(
+  webPageNode({
+    path: "/work",
+    title: TITLE,
+    description: DESCRIPTION,
+    type: "CollectionPage",
+  }),
+  breadcrumbNode("/work"),
+  projectsNode(PROJECTS, "/work"),
+);
 
 export default function WorkPage() {
   return (
@@ -26,6 +49,7 @@ export default function WorkPage() {
       }
       intro="Real, live products built for startups and small businesses — each one designed, developed, and deployed end to end. Tap any card to view it live."
     >
+      <JsonLd id="schema-work" data={workGraph} />
       <section className="mx-auto max-w-[1400px] px-6 pb-28 md:pb-40">
         <Reveal>
           <div className="mb-14 flex items-end justify-between border-t border-white/10 pt-10">
@@ -48,9 +72,12 @@ export default function WorkPage() {
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
                     src={p.image}
-                    alt={p.title}
+                    alt={`${p.title} — ${p.kind} built by SoberDev using ${p.tags.join(", ")}`}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
+                    // First two cards sit above the fold on most viewports; they
+                    // are the LCP candidates for this route.
+                    priority={i < 2}
                     className="object-cover object-top grayscale-[0.4] transition-all duration-700 group-hover:scale-[1.05] group-hover:grayscale-0"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />

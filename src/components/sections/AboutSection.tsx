@@ -98,7 +98,7 @@ export default function AboutSection() {
                   <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl ring-1 ring-white/10 grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:ring-indigo-500/40">
                     <Image
                       src={m.image}
-                      alt={m.name}
+                      alt={`${m.name}, ${m.role} at SoberDev`}
                       fill
                       sizes="80px"
                       className="object-cover object-top transition-transform duration-700 group-hover:scale-105"

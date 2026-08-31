@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 const featured = PROJECTS.filter((p) => p.featured);
 const rest = PROJECTS.filter((p) => !p.featured);
 
-function FeaturedCard({ p }: { p: Project }) {
+function FeaturedCard({ p, priority = false }: { p: Project; priority?: boolean }) {
   return (
     <a
       href={p.link}
@@ -25,9 +25,10 @@ function FeaturedCard({ p }: { p: Project }) {
       <div className="relative flex-1 overflow-hidden">
         <Image
           src={p.image}
-          alt={p.title}
+          alt={`${p.title} — ${p.kind} built by SoberDev using ${p.tags.join(", ")}`}
           fill
           sizes="(max-width: 768px) 82vw, 46vw"
+          priority={priority}
           className="object-cover object-top grayscale-[0.35] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.04]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
@@ -108,8 +109,8 @@ export default function ProjectsSection() {
             </p>
           </div>
 
-          {featured.map((p) => (
-            <FeaturedCard key={p.index} p={p} />
+          {featured.map((p, i) => (
+            <FeaturedCard key={p.index} p={p} priority={i === 0} />
           ))}
         </div>
       </div>
@@ -118,9 +119,9 @@ export default function ProjectsSection() {
       <div className="max-w-[1400px] mx-auto px-6 py-28 md:py-40">
         <Reveal>
           <div className="flex items-end justify-between mb-14">
-            <h3 className="text-3xl md:text-5xl font-display font-bold text-white tracking-tighter">
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white tracking-tighter">
               The full index
-            </h3>
+            </h2>
             <span className="font-mono text-xs text-white/35">{PROJECTS.length} projects</span>
           </div>
         </Reveal>
@@ -137,7 +138,7 @@ export default function ProjectsSection() {
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
                     src={p.image}
-                    alt={p.title}
+                    alt={`${p.title} — ${p.kind} built by SoberDev using ${p.tags.join(", ")}`}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover object-top grayscale-[0.4] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.05]"
@@ -146,9 +147,9 @@ export default function ProjectsSection() {
                 </div>
                 <div className="flex items-center justify-between p-6">
                   <div>
-                    <h4 className="text-xl md:text-2xl font-display font-bold text-white transition-colors group-hover:text-indigo-400">
+                    <h3 className="text-xl md:text-2xl font-display font-bold text-white transition-colors group-hover:text-indigo-400">
                       {p.title}
-                    </h4>
+                    </h3>
                     <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-white/40">
                       {p.kind} · {p.year}
                     </p>

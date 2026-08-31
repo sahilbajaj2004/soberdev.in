@@ -7,73 +7,114 @@ import SmoothScroll from "@/components/providers/SmoothScroll";
 import ScrollReset from "@/components/providers/ScrollReset";
 import Preloader from "@/components/ui/Preloader";
 import Cursor from "@/components/ui/Cursor";
+import JsonLd from "@/components/seo/JsonLd";
+import { graph, organizationNode, websiteNode } from "@/lib/schema";
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_TITLE,
+  KEYWORDS,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/site";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
   variable: "--font-bricolage",
+  display: "swap",
 });
 
 const syne = Syne({
   subsets: ["latin"],
   variable: "--font-syne",
+  display: "swap",
 });
 
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains",
+  display: "swap",
 });
 
-// Prefer using a canonical site URL if provided; fallback to production URL
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://soberdev.in";
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-HNCS82NBHQ";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  applicationName: "SoberDev",
+  applicationName: SITE_NAME,
   title: {
-    default: "SoberDev - Software Development Studio in Delhi, India",
-    template: "%s | SoberDev",
+    default: DEFAULT_TITLE,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "SoberDev is a development studio in Delhi, India. We build fast landing pages, full-stack web apps, and cross-platform products for startups and small businesses.",
-  keywords:
-    "SoberDev, sober dev, sober, SoberDev agency, web development agency, software development agency, digital product studio, web developer in Delhi, website development in Delhi, full stack developer Delhi, web development India, landing page development, full stack web apps, SaaS development, MVP development, startup product development, React developer, Next.js developer, TypeScript, Tailwind CSS, MERN stack, Node.js development, API development, database design, backend developer Delhi, frontend developer Delhi, web application development, custom website development, ecommerce development, Shopify development, CMS development, headless CMS, UI/UX design, product design studio, web design Delhi, responsive web design, performance optimization, SEO services, DevOps services, cloud deployment, Vercel deployment, AWS deployment, cross-platform apps, Android app development, iOS app development, mobile app development, progressive web app, PWA development, SoberDev Delhi, Sahil Bajaj, Adarsh Shrivastava",
-  authors: [{ name: "SoberDev" }],
+  description: DEFAULT_DESCRIPTION,
+  keywords: [...KEYWORDS],
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
   category: "technology",
   referrer: "origin-when-cross-origin",
   formatDetection: { email: false, address: false, telephone: false },
-  robots: { index: true, follow: true },
-  alternates: {
-    canonical: "/",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      // Allow full-size image previews and untruncated text snippets. Without
+      // these, Google may clip the snippet it shows — and AI Overviews draw on
+      // the same snippet budget.
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
+  // No `alternates` here on purpose. A canonical defined in the root layout is
+  // inherited by any page that does not set its own — which previously meant the
+  // 404 page advertised the homepage as its canonical, a textbook soft-404
+  // signal. Every real page now declares its own canonical via buildMetadata().
+  // hreflang is likewise omitted: the site is single-locale, so language
+  // alternates pointing at one URL would be noise.
   openGraph: {
-    title: "SoberDev - Software Development Studio in Delhi, India",
-    description:
-      "Development studio in Delhi building landing pages, full-stack web apps, and cross-platform products.",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
     type: "website",
     url: SITE_URL,
-    siteName: "SoberDev",
-    images: [new URL("/soberdev.jpg", SITE_URL).toString()],
+    siteName: SITE_NAME,
+    locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SoberDev - Software Development Studio in Delhi, India",
-    description:
-      "Development studio in Delhi building landing pages, full-stack web apps, and cross-platform products.",
-    images: [new URL("/soberdev.jpg", SITE_URL).toString()],
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
   },
   icons: {
+    // /favicon.ico is emitted automatically from src/app/favicon.ico, so it is
+    // intentionally not repeated here — declaring it twice produced duplicate
+    // <link rel="icon"> tags.
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
       { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
       { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
     apple: "/apple-icon.png",
   },
+  manifest: "/manifest.webmanifest",
+  // Search Console ownership is proven by the HTML file at
+  // public/google083a6a840930b128.html. A `verification.google` meta tag is
+  // intentionally omitted: the meta-tag method issues a different token than the
+  // file method, so reusing the filename here would emit an invalid tag.
 };
 
 export const viewport: Viewport = {
   themeColor: "#0b0f19",
+  colorScheme: "dark",
+  width: "device-width",
+  initialScale: 1,
 };
+
+/**
+ * Site-wide entity graph. Emitted once from the layout so the Organization and
+ * WebSite nodes exist on every URL; individual pages then add their own WebPage,
+ * breadcrumb and content nodes that reference these by @id.
+ */
+const siteGraph = graph(organizationNode(), websiteNode());
 
 export default function RootLayout({
   children,
@@ -81,47 +122,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${bricolage.variable} ${syne.variable} ${jetbrains.variable} font-sans antialiased bg-black`}>
+    <html lang="en-IN" className="scroll-smooth">
+      <body
+        className={`${bricolage.variable} ${syne.variable} ${jetbrains.variable} font-sans antialiased bg-black`}
+      >
+        <JsonLd id="schema-site" data={siteGraph} />
         <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[9999] noise" />
         <Preloader />
         <Cursor />
         <ScrollReset />
         <SmoothScroll>{children}</SmoothScroll>
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-HNCS82NBHQ"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
         />
         <Script id="ga4" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-HNCS82NBHQ');`}
+gtag('config', '${GA_ID}');`}
         </Script>
-        {/* Basic JSON-LD for Professional Service */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              name: "SoberDev",
-              url: SITE_URL,
-              logo: new URL("/soberdev.jpg", SITE_URL).toString(),
-              image: new URL("/soberdev.jpg", SITE_URL).toString(),
-              email: "contact@soberdev.in",
-              telephone: "+91 8595105597",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Delhi",
-                addressRegion: "Delhi",
-                addressCountry: "IN",
-              },
-              areaServed: ["Delhi", "India"],
-              sameAs: ["https://github.com/sahilbajaj2004", "https://github.com/AdarshKumarSr", "https://linkedin.com/company/soberdev"],
-            }),
-          }}
-        />
       </body>
     </html>
   );

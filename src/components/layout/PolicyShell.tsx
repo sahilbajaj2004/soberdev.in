@@ -1,65 +1,67 @@
 import type React from "react";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-
-const LABEL = "text-[10px] font-mono uppercase tracking-[0.22em] text-white/40";
-
-const LEGAL_LINKS = [
-  { href: "/privacy-policy", label: "Privacy Policy" },
-  { href: "/terms-of-service", label: "Terms of Service" },
-  { href: "/refund-policy", label: "Refund Policy" },
-] as const;
+import SiteHeader from "@/components/layout/SiteHeader";
+import SiteFooter from "@/components/layout/SiteFooter";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbNode, graph, webPageNode } from "@/lib/schema";
+import { ROUTES } from "@/lib/site";
 
 /**
  * Shared chrome for the legal pages (privacy / terms / refund).
  * Matches the site's design system: black canvas, indigo accent,
  * Syne display headings, Bricolage body, JetBrains mono labels.
+ *
+ * These pages previously rendered a minimal local footer containing only the
+ * three legal links, which left them orphaned from the rest of the site — no
+ * path back to /work, /services, /about or /contact. They now use the shared
+ * header and footer so link equity flows through them like any other page.
  */
 export function PolicyShell({
+  path,
   title,
   updated,
   children,
 }: {
+  path: string;
   title: string;
   updated: string;
   children: React.ReactNode;
 }) {
+  const route = ROUTES.find((r) => r.path === path);
+
+  const policyGraph = graph(
+    {
+      ...webPageNode({
+        path,
+        title,
+        description: route?.summary ?? title,
+      }),
+      dateModified: route?.lastModified,
+    },
+    breadcrumbNode(path),
+  );
+
   return (
     <main className="relative min-h-screen bg-black text-white noise">
-      <div className="relative z-10 mx-auto max-w-3xl px-6 py-24 md:py-32">
-        <Link
-          href="/"
-          className="mb-16 inline-flex items-center gap-2 text-white/50 transition-colors hover:text-indigo-400"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          <span className={LABEL}>Back to Sober<span className="text-indigo-500">Dev</span></span>
-        </Link>
+      <JsonLd id={`schema-policy-${path.replace(/\//g, "")}`} data={policyGraph} />
+      <SiteHeader />
 
-        <p className={LABEL}>Legal</p>
+      <div className="relative z-10 mx-auto max-w-3xl px-6 pt-20 pb-24 md:pt-28 md:pb-32">
+        <p className="text-[10px] font-mono uppercase tracking-[0.22em] text-white/40">
+          Legal
+        </p>
         <h1 className="mt-4 font-display text-4xl font-bold leading-[0.95] tracking-tighter md:text-6xl">
           {title}
         </h1>
         <p className="mt-6 text-[11px] font-mono uppercase tracking-[0.18em] text-white/40">
-          Last updated: {updated}
+          Last updated:{" "}
+          {/* Machine-readable date alongside the human one. */}
+          <time dateTime={route?.lastModified}>{updated}</time>
         </p>
 
         <div className="mt-14 space-y-12">{children}</div>
-
-        <footer className="mt-24 flex flex-col gap-6 border-t border-white/10 pt-10 sm:flex-row sm:items-center sm:justify-between">
-          <span className={LABEL}>© Sober<span className="text-indigo-500">Dev</span></span>
-          <nav className="flex flex-wrap items-center gap-x-6 gap-y-3">
-            {LEGAL_LINKS.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 transition-colors hover:text-indigo-400"
-              >
-                {l.label}
-              </Link>
-            ))}
-          </nav>
-        </footer>
       </div>
+
+      <SiteFooter />
     </main>
   );
 }
