@@ -5,7 +5,7 @@ import { NAP, SITE_NAME } from "@/lib/site";
  * Shared Open Graph card renderer.
  *
  * The previous setup pointed og:image and twitter:image at /soberdev.jpg, which
- * did not exist — so every social share and every crawler preview resolved to a
+ * did not exist, so every social share and every crawler preview resolved to a
  * 404. Generating the card at build time removes the possibility of a missing
  * binary asset and gives each route its own contextual preview.
  */
@@ -129,4 +129,4 @@ export function renderOgImage({
   );
 }
 
-export const OG_ALT = (title: string) => `${title} — ${SITE_NAME}`;
+export const OG_ALT = (title: string) => `${title} | ${SITE_NAME}`;

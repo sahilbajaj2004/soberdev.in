@@ -8,9 +8,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbNode, graph, projectsNode, webPageNode } from "@/lib/schema";
 import { buildMetadata } from "@/lib/site";
 
-const TITLE = "Work — Web & App Projects We've Shipped";
+const TITLE = "Work - Web & App Projects We've Shipped";
 const DESCRIPTION =
-  "Every product SoberDev has shipped: landing pages, full-stack web apps, AI developer tools, and brand sites — each with a live link, stack, and year.";
+  "Every product SoberDev has shipped: landing pages, full-stack web apps, AI developer tools, and brand sites - each with a live link, stack, and year.";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
@@ -47,7 +47,7 @@ export default function WorkPage() {
           <span className="text-stroke">shipped.</span>
         </>
       }
-      intro="Real, live products built for startups and small businesses — each one designed, developed, and deployed end to end. Tap any card to view it live."
+      intro="Real, live products built for startups and small businesses - each one designed, developed, and deployed end to end. Tap any card to view it live."
     >
       <JsonLd id="schema-work" data={workGraph} />
       <section className="mx-auto max-w-[1400px] px-6 pb-28 md:pb-40">
@@ -72,7 +72,7 @@ export default function WorkPage() {
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
                     src={p.image}
-                    alt={`${p.title} — ${p.kind} built by SoberDev using ${p.tags.join(", ")}`}
+                    alt={`${p.title} - ${p.kind} built by SoberDev using ${p.tags.join(", ")}`}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     // First two cards sit above the fold on most viewports; they

@@ -92,7 +92,7 @@ export default function PrivacyPolicyPage() {
         <p>
           We keep contact-form submissions while we are handling your inquiry and
           for up to <strong>12 months</strong> after our last interaction with
-          you, after which we delete them — unless you ask us to delete them
+          you, after which we delete them - unless you ask us to delete them
           sooner, or we have an ongoing engagement that requires us to keep them
           longer.
         </p>
@@ -109,7 +109,7 @@ export default function PrivacyPolicyPage() {
         </p>
         <ul>
           <li>
-            <strong>Web3Forms</strong> — delivers your contact-form submission to
+            <strong>Web3Forms</strong> - delivers your contact-form submission to
             our email inbox (contact@soberdev.in). We use it for email delivery
             only; it does not store a separate copy of your submission for us.
             See{" "}
@@ -119,7 +119,7 @@ export default function PrivacyPolicyPage() {
             .
           </li>
           <li>
-            <strong>Google Analytics (Google LLC)</strong> — measures website
+            <strong>Google Analytics (Google LLC)</strong> - measures website
             usage as described above. See{" "}
             <a
               href="https://policies.google.com/privacy"
@@ -131,7 +131,7 @@ export default function PrivacyPolicyPage() {
             .
           </li>
           <li>
-            <strong>Vercel</strong> — hosts the website and processes standard
+            <strong>Vercel</strong> - hosts the website and processes standard
             server and access logs to serve it. See{" "}
             <a
               href="https://vercel.com/legal/privacy-policy"

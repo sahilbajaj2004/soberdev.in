@@ -97,7 +97,7 @@ export default function HeroSection() {
         <h1 className="font-display font-bold text-white leading-[0.92] tracking-tighter text-[clamp(2.8rem,9vw,9rem)]">
           {/*
             The eyebrow lives inside the h1 so the heading text reads
-            "Software development studio in Delhi, India — We build products that
+            "Software development studio in Delhi, India - We build products that
             actually ship.", carrying both search intent and the brand line.
             Styling keeps it visually identical to the previous sibling element.
           */}

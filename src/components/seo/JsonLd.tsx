@@ -2,7 +2,7 @@
  * Renders a JSON-LD graph into the document.
  *
  * Next.js hoists <script type="application/ld+json"> from a page/layout body
- * into <head> during streaming, so this is the framework-recommended pattern —
+ * into <head> during streaming, so this is the framework-recommended pattern -
  * no next/script needed, and it stays server-rendered so crawlers that do not
  * execute JavaScript still see the markup in the initial HTML response.
  */

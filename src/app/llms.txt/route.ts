@@ -10,7 +10,7 @@ import {
 import { NAP, ROUTES, SAME_AS, SITE_NAME, abs } from "@/lib/site";
 
 /**
- * /llms.txt — the llmstxt.org convention.
+ * /llms.txt - the llmstxt.org convention.
  *
  * A single plain-text, markdown-structured brief that LLM-based crawlers can
  * ingest without parsing an animated, client-rendered marketing site. The
@@ -18,7 +18,7 @@ import { NAP, ROUTES, SAME_AS, SITE_NAME, abs } from "@/lib/site";
  * this file states the same facts in the flattest possible form so a model
  * summarising or citing the studio gets the details right instead of guessing.
  *
- * Rendered statically at build time — no runtime cost.
+ * Rendered statically at build time - no runtime cost.
  */
 export const dynamic = "force-static";
 
@@ -62,7 +62,7 @@ export async function GET() {
     ]),
     section(
       "Team",
-      TEAM.map((m) => `- ${m.name} — ${m.role}. ${m.bio}`),
+      TEAM.map((m) => `- ${m.name} - ${m.role}. ${m.bio}`),
     ),
     section(
       "Selected work",

@@ -7,7 +7,7 @@ export const SITE = {
   tagline: "Software development studio",
   location: "Delhi, India",
   // Canonical contact address. Kept lowercase and identical to the value in
-  // src/lib/site.ts (NAP) and the legal pages — mismatched contact details across
+  // src/lib/site.ts (NAP) and the legal pages. Mismatched contact details across
   // a site weaken local ranking and confuse answer engines.
   email: "contact@soberdev.in",
   phone: "+91 8595105597",
@@ -30,7 +30,7 @@ export const NAV = [
 export const HERO = {
   // Rendered inside the <h1> so the heading carries the search-intent phrase as
   // well as the brand line. Previously this sat in a sibling <span>, leaving the
-  // h1 as "We build products that actually ship." — zero keywords.
+  // h1 as "We build products that actually ship.", carrying zero keywords.
   kicker: "Software development studio in Delhi, India",
   // headline rendered word-by-word for the kinetic reveal
   line1: ["We", "build"],
@@ -39,7 +39,7 @@ export const HERO = {
   // Opening body sentence, written as a definition: subject, category, location,
   // then offering. This is the sentence an LLM lifts when asked "what is
   // SoberDev", so it names the entity explicitly instead of saying "we".
-  sub: "SoberDev is a software development studio in Delhi, India, shipping fast landing pages, full-stack web apps, and AI tools — design through deployment.",
+  sub: "SoberDev is a software development studio in Delhi, India, shipping fast landing pages, full-stack web apps, and AI tools, from design through deployment.",
 } as const;
 
 export type Stat = { num: number; suffix?: string; glyph?: string; dec?: boolean; label: string };
@@ -338,7 +338,7 @@ export type Faq = { question: string; answer: string };
 /**
  * FAQs are written answer-first: the first sentence is a complete, standalone
  * answer that makes sense with zero surrounding context, followed by detail.
- * That shape is what featured snippets and AI answer engines extract — a reply
+ * That shape is what featured snippets and AI answer engines extract: a reply
  * that opens with preamble ("Great question! At SoberDev we...") gets skipped.
  * Concrete nouns, prices and timeframes are kept in the text, not implied.
  */

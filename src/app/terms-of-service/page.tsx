@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Terms of Service",
   description:
-    "The terms that govern SoberDev's web development services — scope, payment milestones, intellectual property, timelines, liability, and termination.",
+    "The terms that govern SoberDev's web development services - scope, payment milestones, intellectual property, timelines, liability, and termination.",
   path: "/terms-of-service",
 });
 
@@ -18,9 +18,9 @@ export default function TermsOfServicePage() {
       <Section title="Agreement">
         <p>
           These Terms of Service govern the web development work SoberDev (&quot;we&quot;,
-          &quot;us&quot;) provides to a client (&quot;you&quot;). By engaging us —
+          &quot;us&quot;) provides to a client (&quot;you&quot;). By engaging us -
           through a signed proposal, an email confirmation, or by paying a deposit
-          — you agree to these terms. Where a separate written agreement for a
+          - you agree to these terms. Where a separate written agreement for a
           specific project conflicts with these terms, that project agreement
           takes precedence.
         </p>
@@ -49,7 +49,7 @@ export default function TermsOfServicePage() {
           <strong>included</strong>.
         </p>
         <p>
-          A <strong>scope change</strong> is any work beyond that quote — for
+          A <strong>scope change</strong> is any work beyond that quote - for
           example, additional pages or features, new integrations, a change of
           design direction, or revisions to a design after it has already been
           approved. Scope changes are quoted separately and may affect the price

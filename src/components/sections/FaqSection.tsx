@@ -11,7 +11,7 @@ import { Reveal } from "@/components/ui/Reveal";
  *
  * Every answer stays mounted and is collapsed with animated height rather than
  * being unmounted. Previously only the open item existed in the DOM, so five of
- * the answers were absent from the server-rendered HTML entirely — invisible to
+ * the answers were absent from the server-rendered HTML entirely - invisible to
  * any crawler or answer engine that does not click. Collapsed-but-present
  * content is indexed normally; content that was never rendered is not.
  *

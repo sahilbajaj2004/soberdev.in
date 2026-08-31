@@ -6,7 +6,7 @@ import { SITE_URL, abs } from "@/lib/site";
  * Copilot, Apple Intelligence). They are explicitly allowed rather than left to
  * the wildcard rule for two reasons:
  *
- *  1. Intent is documented — a future edit cannot accidentally deindex the site
+ *  1. Intent is documented - a future edit cannot accidentally deindex the site
  *     from AI answer engines without deleting a named entry.
  *  2. Several of these bots are blocked by default at the edge by some hosts and
  *     CDN bot-management rules; an explicit allow is the signal to permit them.

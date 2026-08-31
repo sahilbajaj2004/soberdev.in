@@ -85,8 +85,8 @@ html::-webkit-scrollbar {
     opacity: 0.05;
     /*
       Inlined as a data URI. This was previously fetched from
-      grainy-gradients.vercel.app on every page that uses .noise — which is almost
-      every section — adding a third-party DNS lookup, TLS handshake and request
+      grainy-gradients.vercel.app on every page that uses .noise - which is almost
+      every section - adding a third-party DNS lookup, TLS handshake and request
       to the critical path, leaking visitor IPs to another origin, and
       contradicting the privacy policy's claim that assets are self-hosted.
     */
