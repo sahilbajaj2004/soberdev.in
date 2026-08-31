@@ -75,7 +75,7 @@ export default function RefundPolicyPage() {
           To cancel or request a refund, email{" "}
           <a href="mailto:contact@soberdev.in">contact@soberdev.in</a> with your
           project name. Where a refund is due, we issue it to the original payment
-          method where possible, typically within 7–10 business days of confirming
+          method where possible, typically within 7-10 business days of confirming
           the cancellation.
         </p>
       </Section>
